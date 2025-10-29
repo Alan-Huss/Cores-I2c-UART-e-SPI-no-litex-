@@ -64,15 +64,17 @@ O arquivo `colorlight_i5.py` implementa um **SoC customizado LiteX** com os segu
 
 ### 🧠 Mapa de Pinos
 
-| Periférico | Função | Pino FPGA | Descrição |
-|-------------|---------|-----------|------------|
-| SPI CLK | LoRa SCK | G20 | Clock SPI |
-| SPI MOSI | LoRa MOSI | L18 | Dados TX |
-| SPI MISO | LoRa MISO | M18 | Dados RX |
-| SPI CS | LoRa CS_N | N17 | Chip Select |
-| GPIO | LoRa RESET | L20 | Reset via CSR |
-| I2C SDA | AHT10 SDA | U18 | Dados I2C |
-| I2C SCL | AHT10 SCL | U17 | Clock I2C |
+
+| Periférico | Função | Pino FPGA | Conector | Descrição |
+|-------------|---------|-----------|-----------|------------|
+| **SPI CLK** | LoRa SCK | G20 | CN2 | Clock SPI |
+| **SPI MOSI** | LoRa MOSI | L18 | CN2 | Dados enviados da FPGA para o LoRa |
+| **SPI MISO** | LoRa MISO | M18 | CN2 | Dados recebidos do LoRa para a FPGA |
+| **SPI CS** | LoRa CS_N | N17 | CN2 | Seleção de chip (Chip Select) |
+| **GPIO** | LoRa RESET | L20 | CN2 | Controle de reset do módulo LoRa |
+| **I2C SDA** | AHT10 SDA | U18 | J2 | Linha de dados bidirecional (Data) |
+| **I2C SCL** | AHT10 SCL | U17 | J2 | Linha de clock do barramento I2C |
+
 
 ---
 
@@ -114,7 +116,7 @@ Suas principais funções são:
 - Exibir os valores de **temperatura** e **umidade** em um **display OLED** conectado via I2C.  
 - Atualizar automaticamente a cada nova transmissão recebida.  
 
-O firmware pode ser desenvolvido em **C++** ou **MicroPython**, utilizando a biblioteca LoRa correspondente ao módulo **RFM96**.
+O firmware foi desenvolvido em **C++**, utilizando a biblioteca LoRa correspondente ao módulo **RFM96**.
 
 ### 💡 Exemplo de Exibição (pseudo-código)
 
@@ -133,11 +135,7 @@ if (lora.receive(pacote)) {
 Na raiz do repositório, execute o comando abaixo para gerar e carregar o SoC na FPGA:
 
 ```bash
-python3 litex/colorlight_i5.py \
-  --board i9 \
-  --revision 7.2 \
-  --cpu-type=vexriscv \
-  --build --load --ecppack-compress
+python3 litex/colorlight_i5.py --board i9 --revision 7.2 --cpu-type=vexriscv --build --load --ecppack-compress
 ```
 💡 Este comando cria o bitstream, gera os arquivos do SoC e carrega automaticamente na FPGA ColorLight i9 via cabo USB-ECPDAP.
 
@@ -153,7 +151,7 @@ Isso gera o arquivo binário main.bin, compatível com o processador VexRiscv do
 ## 🚀 3️⃣ – Carregar o Firmware no SoC
 
 Após a compilação, envie o firmware para o processador RISC-V da FPGA.
-Substitua /dev/ttyACMxx pela porta serial correspondente à FPGA detectada no seu sistema:
+Substitua /dev/ttyACM`xx` pela porta serial correspondente à FPGA detectada no seu sistema:
 
 ``` bash
 litex_term --kernel main.bin /dev/ttyACMxx
