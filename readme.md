@@ -67,13 +67,13 @@ O arquivo `colorlight_i5.py` implementa um **SoC customizado LiteX** com os segu
 
 | Periférico | Função | Pino FPGA | Conector | Descrição |
 |-------------|---------|-----------|-----------|------------|
-| **SPI CLK** | LoRa SCK | G20 | CN2 | Clock SPI |
-| **SPI MOSI** | LoRa MOSI | L18 | CN2 | Dados enviados da FPGA para o LoRa |
-| **SPI MISO** | LoRa MISO | M18 | CN2 | Dados recebidos do LoRa para a FPGA |
-| **SPI CS** | LoRa CS_N | N17 | CN2 | Seleção de chip (Chip Select) |
-| **GPIO** | LoRa RESET | L20 | CN2 | Controle de reset do módulo LoRa |
-| **I2C SDA** | AHT10 SDA | U18 | J2 | Linha de dados bidirecional (Data) |
-| **I2C SCL** | AHT10 SCL | U17 | J2 | Linha de clock do barramento I2C |
+| **SPI CLK** | LoRa SCK | G20 | P2 - CN2 | Clock SPI |
+| **SPI MOSI** | LoRa MOSI | L18 | P2 - CN2 | Dados enviados da FPGA para o LoRa |
+| **SPI MISO** | LoRa MISO | M18 | P2 - CN2 | Dados recebidos do LoRa para a FPGA |
+| **SPI CS** | LoRa CS_N | N17 | P2 - CN2 | Seleção de chip (Chip Select) |
+| **GPIO** | LoRa RESET | L20 | P2 - CN2 | Controle de reset do módulo LoRa |
+| **I2C SDA** | AHT10 SDA | U18 | P2 - J2 | Linha de dados bidirecional (Data) |
+| **I2C SCL** | AHT10 SCL | U17 | P2 - J2 | Linha de clock do barramento I2C |
 
 
 ---
