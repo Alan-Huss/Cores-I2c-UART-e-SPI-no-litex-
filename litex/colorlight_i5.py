@@ -109,7 +109,7 @@ class BaseSoC(SoCCore):
                 l2_cache_size = kwargs.get("l2_size", 8192)
             )
 
-        # Configuração dos pinos SPI (para LoRa RFM95) -----------------------------------------------
+        # Configuração dos pinos SPI (para LoRa RFM95) no conector CN2 -----------------------------
         spi_pads = [
             ("spi", 0,
                 Subsignal("clk",  Pins("G20")),
@@ -132,7 +132,7 @@ class BaseSoC(SoCCore):
         self.submodules.lora_reset = GPIOOut(platform.request("lora_reset"))
         self.add_csr("lora_reset")
 
-        # Configuração dos pinos I2C (para AHT10) ---------------------------------------------------
+        # Configuração dos pinos I2C (para AHT10) no conector J2 -----------------------------------
         i2c_pads = [
             ("i2c", 0,
                 Subsignal("scl", Pins("U17")),

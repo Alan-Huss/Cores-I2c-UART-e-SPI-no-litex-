@@ -78,6 +78,11 @@ O arquivo `colorlight_i5.py` implementa um **SoC customizado LiteX** com os segu
 
 ---
 
+### 🔌 Ligação dos perifericos
+
+![BitDog](imgs/bitdog_ligacao.jpg)
+![FPGA](imgs/FPGA-Ligacao.jpg)
+
 ## 💾 5. Firmware – FPGA (Transmissor)
 
 O firmware bare-metal (`main.c`) roda sobre o processador **VexRiscv** e executa:
@@ -193,9 +198,9 @@ O trabalho evidencia o domínio dos conceitos de **arquitetura de SoCs embarcado
 
 ## 🔗 11. Referências
 
-- [Repositório do Projeto – GitHub](https://github.com/Alan-Huss/Cores-I2c-UART-e-SPI-no-litex-)  
+- [Repositório de exemplos com a Colorlight i9 – GitHub](https://github.com/dvcirilo/colorlight-i9-examples)  
 - [LiteX Framework Documentation](https://github.com/enjoy-digital/litex/wiki)  
 - [LoRa RFM95 Datasheet – HopeRF](https://cdn.sparkfun.com/assets/learn_tutorials/8/0/2/RFM95_96_97_98W.pdf)  
 - [AHT10 Datasheet – Aosong](https://github.com/adafruit/Adafruit_AHTX0)  
-- [ColorLight i9 Schematics](https://github.com/q3k/chubby75/tree/master/colorlight-i9)  
+- [Colorlight-FPGA-Projects](https://github.com/wuxx/Colorlight-FPGA-Projects?utm_source=chatgpt.com)  
 - [EmbarcaTech – Trilha FPGA (IFRN)](https://ava.ifrn.edu.br/)
