@@ -76,12 +76,23 @@ O arquivo `colorlight_i5.py` implementa um **SoC customizado LiteX** com os segu
 | **I2C SCL** | AHT10 SCL | U17 | P2 - J2 | Linha de clock do barramento I2C |
 
 
+### 🔌 Ligação dos periféricos
+
+<p align="center">
+  <img src="imgs/bitdog_ligacao.jpg" width="600" alt="Ligação BitDogLab"><br>
+  <strong>Figura 1 – Ligação da placa BitDogLab</strong>
+</p>
+
+</br>
+
+<p align="center">
+  <img src="imgs/FPGA-Ligacao.jpg" width="600" alt="Ligação FPGA"><br>
+  <strong>Figura 2 – Ligação dos periféricos na FPGA</strong>
+</p>
+
 ---
 
-### 🔌 Ligação dos perifericos
 
-![BitDog](imgs/bitdog_ligacao.jpg)
-![FPGA](imgs/FPGA-Ligacao.jpg)
 
 ## 💾 5. Firmware – FPGA (Transmissor)
 
@@ -169,7 +180,27 @@ reboot
 
 📺 Demonstração no YouTube
 
-## 📊 9. Resultados
+
+## 💡 9. Nota de Hardware: Clarificação do Módulo LoRa (RFM95 vs. RF96)
+
+É importante notar uma discrepância encontrada no hardware LoRa utilizado, que é comum nestes módulos:
+
+* **Marcação vs. Funcionalidade:** Embora o chip de silício (o *die*) esteja estampado com a marcação **RF96** (frequentemente associada à frequência de 433MHz), o módulo completo em uso é, de fato, o **RFM95**, configurado para operar em **915 MHz**.
+* **Frequência de Operação:** A frequência de **915 MHz** foi utilizada. Ela é funcional no módulo RFM95 e foi preferida em detrimento da 433MHz, que pode apresentar um alcance de transmissão inferior.
+* **Compatibilidade:** O driver de firmware (`lora_RFM95.c`) é, portanto, o correto, correspondendo ao módulo **RFM95 @ 915MHz** em uso.
+
+Abaixo estão as imagens do componente utilizado, mostrando a marcação no chip e descrição do mesmo na parte traseira:
+
+<p align="center">
+  <img src="imgs/frontal.jpeg" width="400" alt="Marcação RF96 no chip do módulo">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="imgs/traseira.jpeg" width="420" alt="Parte de trás especificando o modelo e a frequência">
+</p>
+<p align="center">
+  <strong>Figura 3: Detalhe do chip (RF96) no módulo RFM95 (915 MHz).</strong>
+</p>
+
+## 📊 10. Resultados
 
 - Comunicação **LoRa** estável e confiável entre a FPGA (ColorLight i9) e a BitDogLab.  
 - Integração completa dos barramentos **SPI** (LoRa RFM96) e **I2C** (AHT10) dentro do SoC LiteX.  
@@ -177,9 +208,8 @@ reboot
 - Transmissões periódicas a cada 10 segundos, com leitura consistente de temperatura e umidade.  
 - Firmware e SoC configurados com sucesso utilizando o **core VexRiscv** e periféricos LiteX.  
 
----
 
-## 🧾 10. Conclusão
+## 🧾 11. Conclusão
 
 O projeto **Tarefa 05 – Transmissão de Dados via LoRa** demonstrou de forma prática a integração entre hardware e software em sistemas embarcados.  
 Foram desenvolvidos e validados todos os elementos de um **System-on-Chip (SoC)** funcional com comunicação sem fio.
@@ -194,9 +224,8 @@ Foram desenvolvidos e validados todos os elementos de um **System-on-Chip (SoC)*
 
 O trabalho evidencia o domínio dos conceitos de **arquitetura de SoCs embarcados**, **comunicação de periféricos** e **integração firmware-hardware** no contexto da residência **EmbarcaTech**.
 
----
 
-## 🔗 11. Referências
+## 🔗 12. Referências
 
 - [Repositório de exemplos com a Colorlight i9 – GitHub](https://github.com/dvcirilo/colorlight-i9-examples)  
 - [LiteX Framework Documentation](https://github.com/enjoy-digital/litex/wiki)  
