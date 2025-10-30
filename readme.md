@@ -187,7 +187,7 @@ reboot
 
 * **Marcação vs. Funcionalidade:** Embora o chip de silício (o *die*) esteja estampado com a marcação **RF96** (frequentemente associada à frequência de 433MHz), o módulo completo em uso é, de fato, o **RFM95**, configurado para operar em **915 MHz**.
 * **Frequência de Operação:** A frequência de **915 MHz** foi utilizada. Ela é funcional no módulo RFM95 e foi preferida em detrimento da 433MHz, que pode apresentar um alcance de transmissão inferior.
-* **Compatibilidade:** O driver de firmware (`lora_RFM95.c`) é, portanto, o correto, correspondendo ao módulo **RFM95 @ 915MHz** em uso.
+* **Compatibilidade:** O driver de firmware (`lora_RFM95.c`) é, portanto, o correto, correspondendo ao módulo **RFM95 a 915MHz** em uso.
 
 Abaixo estão as imagens do componente utilizado, mostrando a marcação no chip e descrição do mesmo na parte traseira:
 
