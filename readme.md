@@ -189,7 +189,7 @@ reboot
 * **Frequência de Operação:** A frequência de **915 MHz** foi utilizada. Ela é funcional no módulo RFM95 e foi preferida em detrimento da 433MHz, que pode apresentar um alcance de transmissão inferior.
 * **Compatibilidade:** O driver de firmware (`lora_RFM95.c`) é, portanto, o correto, correspondendo ao módulo **RFM95 a 915MHz** em uso.
 
-Abaixo estão as imagens do componente utilizado, mostrando a marcação no chip e descrição do mesmo na parte traseira:
+Abaixo estão as imagens do componente utilizado, mostrando a marcação no chip e descrição do módulo na parte traseira:
 
 <p align="center">
   <img src="imgs/frontal.jpeg" width="45%" alt="Marcação RF96 no chip do módulo">

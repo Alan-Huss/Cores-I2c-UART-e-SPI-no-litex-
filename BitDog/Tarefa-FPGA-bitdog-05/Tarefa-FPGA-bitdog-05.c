@@ -43,6 +43,8 @@ int cont = 0;
 
 void imprimedisplay(float, float);
 
+
+// Atualiza os tres pontos que aguardam a chegada dos primeiros dados
 bool repeating_timer_callback(struct repeating_timer *t) {
 	if(cont < 3){
 		ssd1306_SetCursor((cont + 4)*15, 6 + 15);
@@ -136,6 +138,7 @@ void func_backgoud()
     ssd1306_UpdateScreen();
 }
 
+ // imprime mensagem de aguardo
  void aguardar(){
 
 	ssd1306_Fill(Black);
@@ -192,10 +195,15 @@ void func_backgoud()
         printf("[ERRO] Falha ao inicializar o modulo LoRa. Verifique a fiacao e a versao do chip (deve ser 0x12).\n");
 		ssd1306_WriteString("ERRO - mod LoRa.", Font_6x8, White);
 		ssd1306_UpdateScreen();
-		
-        // Trava a execução se a inicialização falhar
-        while (1);
     }
+
+	// caso a conexão com o modulo lora falhe e realizada tentativas exaustivas
+	while (!lora_init(lora_cfg))
+	{
+		sleep_ms(500);
+	}
+
+	ssd1306_SetCursor( 7, 6 + 11 + 11);
     printf("[SUCESSO] Modulo LoRa inicializado com sucesso!\n\n");
 
 	ssd1306_WriteString("[SUCESSO] - mod LoRa.", Font_6x8, White);
@@ -210,8 +218,6 @@ void func_backgoud()
 
  }
  // função responsavel por atualizar o display
-#include <stdlib.h>
-#include <math.h>
 
 void imprimedisplay(float temp, float umid) {
 
@@ -231,7 +237,7 @@ void imprimedisplay(float temp, float umid) {
     sprintf(umid_i, "%d", umid_int);
     sprintf(umid_f, "%02d", umid_frac);
 
-    // --- LIMPA E DESENHA ---
+    // --- DESENHA AS CAIXAS DE TITULOS---
     ssd1306_FillRectangle(0+4, 0+6, 60 - 4, 0 + 16, White);
     ssd1306_SetCursor(7, 8);
     ssd1306_WriteString("Temp. C", Font_6x8, Black);

@@ -173,7 +173,6 @@ bool lora_init(void) {
     // 3. Verifica a versão do chip via SPI
     rx = lora_read_reg(REG_VERSION);
     if (rx != 0x12) {
-        printf("⚠️ Versão inesperada (esperado 0x12). Falha na comunicação SPI ou chip incorreto.\n");
         return false; // Falha na inicialização
     }
 

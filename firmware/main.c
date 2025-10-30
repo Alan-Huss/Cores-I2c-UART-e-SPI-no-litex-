@@ -90,13 +90,25 @@ int main(void) {
     i2c_init();
 
     // Inicializa o sensor AHT10
-    aht10_init();
+    if (!aht10_init()) {
+        printf("⚠️ FALHA CRÍTICA: verifique a conexão do sensor de temperatura e umidade no conector J2.\n");
+    }
+    while (!aht10_init())
+    {
+        busy_wait_ms(300);
+    }
+    printf("SUCESSO: Inicialização Sensor de Temperatura e umidade\n");
 
     // Inicializa LoRa usando a biblioteca
     if (!lora_init()) {
-        printf("FALHA CRÍTICA: Inicialização do LoRa falhou.\n");
-         while(1);
+         printf("⚠️ FALHA CRÍTICA: verifique a conexão do modulo LoRa no conector CN2.\n");
     }
+
+    while (!lora_init())
+    {
+        busy_wait_ms(300);
+    }
+    printf("SUCESSO: Inicialização do LoRa.\n");
 
     while (1) {
         send_sensor_data();
