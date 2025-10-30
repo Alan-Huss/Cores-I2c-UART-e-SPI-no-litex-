@@ -192,13 +192,12 @@ reboot
 Abaixo estão as imagens do componente utilizado, mostrando a marcação no chip e descrição do mesmo na parte traseira:
 
 <p align="center">
-  <img src="imgs/frontal.jpeg" width="400" alt="Marcação RF96 no chip do módulo">
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="imgs/traseira.jpeg" width="420" alt="Parte de trás especificando o modelo e a frequência">
+  <img src="imgs/frontal.jpeg" width="45%" alt="Marcação RF96 no chip do módulo">
+  <img src="imgs/traseira.jpeg" width="47%" alt="Parte de trás especificando o modelo e a frequência">
 </p>
-<p align="center">
-  <strong>Figura 3: Detalhe do chip (RF96) no módulo RFM95 (915 MHz).</strong>
-</p>
+
+<p align="center"><strong>Figura 3: Detalhe do chip (RF96) no módulo RFM95 (915 MHz).</strong></p>
+
 
 ## 📊 10. Resultados
 
