@@ -39,11 +39,6 @@ void i2c_scan(void);
 int aht10_init(void);
 
 /**
- * @brief Lê o sensor AHT10 e imprime os valores formatados (Debug).
- */
-void aht10_read(void);
-
-/**
  * @brief Obtém os dados de temperatura e umidade do AHT10.
  * @param d Ponteiro para a struct 'dados' onde os resultados serão armazenados.
  * @return true em sucesso, false em falha.

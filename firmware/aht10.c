@@ -173,17 +173,3 @@ bool aht10_get_data(dados *d) {
     
     return true;
 }
-
-void aht10_read(void) {
-    dados my_data;
-    printf("Lendo AHT10 (modo debug)...\n");
-    if (aht10_get_data(&my_data)) {
-        // Imprime os valores com duas casas decimais (dividindo por 100)
-        printf("Umidade: %d.%02d %%\n",
-            my_data.umidade / 100, my_data.umidade % 100);
-        printf("Temperatura: %d.%02d C\n",
-            my_data.temperatura / 100, (my_data.temperatura > 0 ? my_data.temperatura : -my_data.temperatura) % 100);
-    } else {
-        printf("Falha ao ler AHT10.\n");
-    }
-}
