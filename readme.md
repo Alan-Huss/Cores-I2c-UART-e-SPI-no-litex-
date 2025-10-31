@@ -178,7 +178,8 @@ reboot
 
 ## 🎥 8. Demonstração em Vídeo
 
-📺 Demonstração no YouTube
+
+[![📺 Demonstração no YouTube](imgs/Thumbnail.png)](https://youtube.com/shorts/TCkurdMFAII?feature=share)
 
 
 ## 💡 9. Nota de Hardware: Clarificação do Módulo LoRa (RFM95 vs. RF96)
